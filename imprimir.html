@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BancoFacci-Impresion de Prestamo</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body id="contenedor">
+    <section class="container">
+        <div class="row">
+            <form class="center" role="form">
+                <div>
+                    <fieldset class="registration-form">
+                        <div class="title-form">
+                            Prestamo para <label id="name">{{Nombre}}</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="center">
+                    <div class="registration-form left">
+                        <label id="nombres"></label><br>
+                        <label id="cedula"></label><br>
+                        <label id="nacionalidad"></label><br>
+                        <label id="email"></label><br>
+                        <label id="direccion"></label><br>
+                        <label id="cuenta"></label><br>
+                    </div>
+                </div> back
+                <div id="tablaPrestamo" class="center" style="background-color: #00ff73;">
+                    <table class="table">
+                        <thead>
+                            <tr>back
+                                <th class="center">Número</th>
+                                <th class="center">Interes</th>
+                                <th class="center">Abono al Capital</th>
+                                <th class="center">Valor de la cuota</th>
+                                <th class="center">Saldo al capital</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </section><!--/#registration-->
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2021 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">BancoFacci</a>. Todos Los Derechos Reservados.
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/calcular.js"></script>
+    <script src="js/prestamos.js"></script>
+    <script src="js/protegerRuta.js"></script>
+    <script type="text/javascript">
+        if (!localStorage.getItem("Temp-Clientes")) {
+            location.href="index.html"
+        };
+    </script>
+    <script type="text/javascript"> llenarCampos(); imprimir(); </script>
+    <script type="text/javascript">
+        localStorage.removeItem("Temp-Clientes")
+    </script>
+</body>
+</html>
