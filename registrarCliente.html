@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BancoFacci-RegistroCliente</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">    
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="js/registClient.js"></script>
+</head><!--/head-->
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                   BANCOFACCI
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li> 
+                        <a href="index.html">INICIO</a>
+                    </li>
+
+                    <li  class="">
+                        <a href="simulador.html">SIMULADOR</a>
+                    </li>
+                    <!--
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GALERIA <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">FOTOS</a></li>
+                            <li><a href="#">VIDEOS</a></li>
+                        </ul>
+                    </li>
+                     -->
+                     <li  class="active">
+                        <a href="registrarCliente.html">REGISTRAR CLIENTE</a>
+                    </li>
+
+                    <li  class="">
+                        <a href="Historial_Prestamos.html">HISTORIAL DE PRESTAMOS</a>
+                        
+                    <li  class="">
+                            <a href="contacto.html">CONTACTANOS</a>
+                    </li>
+
+                    <li id="InicioS">
+                        <a href="login.html">INICIAR SESION</a>
+                    </li>
+				
+                    <li class="dropdown" style="display:none;" id="InfoU">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><label id="lblUser">USUARIO</label> <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="registration.html">REGISTRAR NUEVO ADMINISTRADOR</a></li>
+                            <li><a href="#" onclick="cerrarSesion()">CERRAR SESION</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="title" class="emerald">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>REGISTRO DE CLIENTES</h1>
+                    <p>Registra a un cliente para brindar un préstamo</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li class="active">Registro de Clientes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/#title-->     
+
+    <section id="registration" class="container">
+        <center>
+        <form class="center" role="form">
+            <fieldset class="registration-form">
+                <div class="title-form">
+                    Registro de Clientes
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-14">
+                        <label style="text-align: right;">Informacion Personal</label>
+                    </div>
+                    <div class="col-md-6 col-sm-12"> 
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="form-control" onkeyup="validarTexto(event,this)" title="Nombre de Cliente" soloLetras required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control" soloLetras onkeyup="validarTexto(event,this)" title="Apellido de Cliente" required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="cedula" name="cedula" placeholder="Cedula" class="form-control" title="Cédula Cliente" onkeyup="vallidarCedula (event,this)" soloNumeros required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="fnacimiento" name="fnacimiento" placeholder="Fecha de Nacimiento" class="form-control" required="true" onfocus="this.type='date'">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="nacionalidad" name="nacionalidad" placeholder="Nacionalidad" class="form-control" soloLetras onkeyup="validarTexto(event,this)" title="Naciconalidad de Cliente" required="true">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group" id="ecivil">
+                            <select class="form-control" required="true" name="ecivil">
+                                <option value="" disabled selected>Estado Civil</option>
+                                <option value="Soltero">Soltero</option>
+                                <option value="Casado">Casado</option>
+                                <option value="Divorciado">Divorciado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" class="form-control" onkeyup="validarEmail(event,this)" title="Correo Cliente" required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="tcelular" name="tcelular" placeholder="Telefono Celular" class="form-control" onkeyup="validarNumero(event,this)" soloNumeros maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="tdomicilio" name="tdomicilio" placeholder="Telefono Domicilio" class="form-control" onkeyup="validarNumero(event,this)" soloNumeros maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="ttrabajo" name="ttrabajo" placeholder="Telefono Trabajo" class="form-control" onkeyup="validarNumero(event,this)" soloNumeros maxlength="10">
+                        </div>
+                    </div>
+                    <div class="col-md-14">
+                        <label style="text-align: right;">Datos de Domicilio</label>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <select class="form-control" name="provincia" required="true">
+                                <option value="" disabled selected>Provincia</option>
+                                <option value="Azuay">Azuay</option>
+                                <option value="Bolívar">Bolívar</option>
+                                <option value="Cañar">Cañar</option>
+                                <option value="Carchi">Carchi</option>
+                                <option value="Chimborazo">Chimborazo</option>
+                                <option value="Cotopaxi">Cotopaxi</option>
+                                <option value="El Oro">El Oro</option>
+                                <option value="Esmeraldas">Esmeraldas</option>
+                                <option value="Galápagos">Galápagos</option>
+                                <option value="Guayas">Guayas</option>
+                                <option value="Imbabura">Imbabura</option>
+                                <option value="Loja">Loja</option>
+                                <option value="Los Ríos">Los Ríos</option>
+                                <option value="Manabí">Manabí</option>
+                                <option value="Morona Santiago">Morona Santiago</option>
+                                <option value="Napo">Napo</option>
+                                <option value="Orellana">Orellana</option>
+                                <option value="Pastaza">Pastaza</option>
+                                <option value="Pichincha">Pichincha</option>
+                                <option value="Santa Elena">Santa Elena</option>
+                                <option value="Santo Domingo de los Tsáchilas">Santo Domingo de los Tsáchilas</option>
+                                <option value="Sucumbíos">Sucumbíos</option>
+                                <option value="Tungurahua">Tungurahua</option>
+                                <option value="Zamora Chinchipe">Zamora Chinchipe</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="direccion" name="direccion" placeholder="Direccion" class="form-control" required="true">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <select class="form-control" name="tcuenta">
+                                <option value="" disabled selected>Tipo de Cuenta</option>
+                                <option value="Ahorro">Ahorro</option>
+                                <option value="Corriente">Corriente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="ncuenta" name="ncuenta" placeholder="N° Cuenta" class="form-control" soloNumeros onkeyup="validarNumero(event,this)" maxlength="13">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-12">
+                        <input type="reset" class="btn btn-success btn-md btn-block" onclick="location.reload()" value="Limpiar">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <button class="btn btn-success btn-md btn-block" onclick="Seguir(event,this)">Siguiente</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        </center>
+    </section>
+
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2021 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">BancoFacci</a>. Todos Los Derechos Reservados.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="simulador.html">SIMULADOR</a></li>
+                        <li><a href="contacto.html">CONTACTANOS</a></li>
+                        <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/indentificaciones.js"></script>
+    <script src="js/sesionlocal.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/protegerRuta.js"></script>
+    <script src="js/registClient.js"></script>
+</body>
+</html>
