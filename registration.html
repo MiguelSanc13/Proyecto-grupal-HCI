@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BancoFacci-RegistroAdmin</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                   BANCOFACCI
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">INICIO</a>
+                    </li>
+                    <li>
+                        <a href="simulador.html">SIMULADOR</a>
+                    </li><!--
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GALERIA <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">FOTOS</a></li>
+                            <li><a href="#">VIDEOS</a></li>
+                        </ul>
+                    </li>
+                     -->
+                    <li>
+                        <a href="contacto.html">CONTACTANOS</a>
+                    </li>
+                    <li  style="display:none;" id="reClient">
+                        <a href="registrarCliente.html">REGISTRAR CLIENTE</a>
+                    </li>
+                    <li  style="display:none;" id="history">
+                        <a href="Historial_Prestamos.html">HISTORIAL DE PRESTAMOS</a>
+                    </li>
+                    <li id="InicioS">
+                        <a href="login.html">INICIAR SESION</a>
+                    </li>
+                    <li class="dropdown" style="display:none;" id="InfoU">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><label id="lblUser">USUARIO</label> <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="registration.html">REGISTRAR NUEVO ADMINISTRADOR</a></li>
+                            <li><a href="#" onclick="cerrarSesion()">CERRAR SESION</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header><!--/header-->
+    <section id="title" class="emerald">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>REGISTRO DE ADMINISTRADORES</h1>
+                    <p>Registre un nuevo administrador del sistema</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li class="active">Registrar Administrador</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/#title-->     
+
+    <section id="registration" class="container">
+        <form class="center" role="form">
+            <fieldset class="registration-form">
+                <div class="title-form">
+                    Registro de Administrador
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" id="username" name="username" placeholder="Usuario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="E-mail" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="Repita Contraseña" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-md btn-block" onclick="Registro(event,this)" onsubmit="Registro(event,this)">Registrar</button>
+                </div>
+            </fieldset>
+        </form>
+    </section><!--/#registration-->
+
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2021 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">BancoFacci</a>. Todos Los Derechos Reservados.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="simulador.html">SIMULADOR</a></li>
+                        <li><a href="contacto.html">CONTACTANOS</a></li>
+                        
+                        <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/protegerRuta.js"></script>
+    <script src="js/sesionlocal.js"></script>
+</body>
+</html>
